@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:thurisa_labs/pages/home/ui/home_page.dart';
+import 'package:thurisa_labs/pages/drawer_screen.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -57,7 +57,7 @@ class SplashScreen extends StatelessWidget {
                         left: 71.w,
                         child: InkWell(
                           onTap: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage()));
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => DrawerScreen()));
                           },
                           child: Container(
                             height: 70.h,
