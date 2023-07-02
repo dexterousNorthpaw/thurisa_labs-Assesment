@@ -11,6 +11,7 @@ class HomePage extends StatelessWidget {
       designSize: const Size(414, 896),
       builder: (BuildContext context, Widget? child) {
         return Scaffold(
+          backgroundColor: Color.fromRGBO(242, 242, 242, 1),
           body: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -126,7 +127,7 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
               ),
-              const Expanded(child: Products())
+              Expanded(child: const Products())
             ],
           ),
           bottomNavigationBar: BottomNavigationBar(
