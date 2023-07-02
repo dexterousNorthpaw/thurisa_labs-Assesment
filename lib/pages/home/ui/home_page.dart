@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:thurisa_labs/pages/products/ui/products_page.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +12,7 @@ class HomePage extends StatelessWidget {
       designSize: const Size(414, 896),
       builder: (BuildContext context, Widget? child) {
         return Scaffold(
-          backgroundColor: Color.fromRGBO(242, 242, 242, 1),
+          backgroundColor: const Color.fromRGBO(242, 242, 242, 1),
           body: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -24,7 +25,13 @@ class HomePage extends StatelessWidget {
                     width: 30.6.w,
                   ),
                   IconButton(
-                      onPressed: () {}, icon: const Icon(Icons.menu_sharp)),
+                      onPressed: () {
+                        if(ZoomDrawer.of(context)!.isOpen()){
+                          ZoomDrawer.of(context)!.close();
+                        }else{
+                          ZoomDrawer.of(context)!.open();
+                        }
+                      }, icon: const Icon(Icons.menu_sharp)),
                   SizedBox(
                     width: 272.4.w,
                   ),
@@ -75,63 +82,85 @@ class HomePage extends StatelessWidget {
               SizedBox(
                 height: 46.h,
               ),
-              SizedBox(
-                height: 33,
+              Container(
+                margin: EdgeInsets.only(left: 75.w),
+                height: 33.h,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: [
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.start,
-
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         const Text("Foods"),
                         Container(
-                          margin: EdgeInsets.only(left:75.w,right: 20.w),
+                          margin: EdgeInsets.only(right: 20.w),
                           height: 3.h,
                           width: 87.w,
-                          color: Color(0xFFFA4A0C),
+                          color: const Color(0xFFFA4A0C),
                         ),
                       ],
                     ),
                     Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        const Text("Drinks"),
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        const Text("Snacks"),
-
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        const Text("Sauce"),
+                        const Text("Foods"),
                         Container(
+                          margin: EdgeInsets.only(right: 20.w),
                           height: 3.h,
                           width: 87.w,
+                          color: const Color(0xFFFA4A0C),
                         ),
                       ],
                     ),
-                    // Column(
-                    //   children: [
-                    //     const Text("Foods"),
-                    //     Container(
-                    //       height: 3.h,
-                    //       width: 87.w,
-                    //       color: Colors.red,
-                    //     ),
-                    //   ],
-                    // ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        const Text("Foods"),
+                        Container(
+                          margin: EdgeInsets.only(right: 20.w),
+                          height: 3.h,
+                          width: 87.w,
+                          color: const Color(0xFFFA4A0C),
+                        ),
+                      ],
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        const Text("Foods"),
+                        Container(
+                          margin: EdgeInsets.only(right: 20.w),
+                          height: 3.h,
+                          width: 87.w,
+                          color: const Color(0xFFFA4A0C),
+                        ),
+                      ],
+                    ),
                   ],
                 ),
               ),
-              Expanded(child: const Products())
+              SizedBox(
+                height: 45.h,
+              ),
+              Container(
+                height: 18.h,
+                  width: 68.w,
+                  margin: EdgeInsets.only(left: 315.w,),
+                  child: Center(
+                    child: Text(
+                        "See more",
+                    style: TextStyle(fontSize: 15.sp,color: const Color(0xFFFa4A0C)),),
+                  )),
+              SizedBox(height: 10.h,),
+              const Expanded(child: Products())
             ],
           ),
           bottomNavigationBar: BottomNavigationBar(
-            elevation: 10.h,
+            elevation: 0,
             items: const [
               BottomNavigationBarItem(
                 icon: ImageIcon(
