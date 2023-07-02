@@ -36,7 +36,7 @@ class _ProductsState extends State<Products> {
                     final successState = state as ProductsFetchSuccessState;
                     return Container(
                       width:500,
-                      height: double.infinity,
+                      // height: double.infinity,
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
                         itemCount: successState.products.length,
@@ -57,8 +57,10 @@ class _ProductsState extends State<Products> {
                             child: Stack(
                               children: [
                                 Positioned(
-                                  top: 42,
+                                  top: 42.h,
                                   bottom: 0,
+                                  left: 0,
+                                  right: 0,
                                   child: Container(
                                     width: 220.w,
                                     height: 270.h,
