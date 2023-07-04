@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:thurisa_labs/pages/profile.dart';
 
 class MenuScreen extends StatefulWidget {
   const MenuScreen({Key? key}) : super(key: key);
@@ -12,10 +13,10 @@ class _MenuScreenState extends State<MenuScreen> {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: Size(414, 896),
+      designSize: const Size(414, 896),
         builder: (BuildContext context, Widget? child) {
           return Scaffold(
-            backgroundColor: Color.fromRGBO(250, 74, 12, 1),
+            backgroundColor: const Color.fromRGBO(250, 74, 12, 1),
 
             body: Column(
 
@@ -33,12 +34,14 @@ class _MenuScreenState extends State<MenuScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       ListTile(
-                        onTap: (){},
-                        leading: ImageIcon(AssetImage(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfilePage()));
+                        },
+                        leading: const ImageIcon(AssetImage(
                           "assets/icons/gg_profile.png",
                         ),color: Colors.white,
                         ),
-                        title: Text("Profile",style: TextStyle(color: Colors.white),),
+                        title: const Text("Profile",style: TextStyle(color: Colors.white),),
                       ),
                       Divider(
                         color: Colors.white,
@@ -46,7 +49,7 @@ class _MenuScreenState extends State<MenuScreen> {
                         endIndent: 9.w,
                         height: 0,
                       ),
-                      ListTile(
+                      const ListTile(
                         leading: ImageIcon(AssetImage(
                           "assets/icons/icons8_buy.png",
                         ),
@@ -61,12 +64,12 @@ class _MenuScreenState extends State<MenuScreen> {
                         height: 0,
                       ),
                       ListTile(
-                        leading: ImageIcon(AssetImage(
+                        leading: ImageIcon(const AssetImage(
                           "assets/icons/ic_outline-local-offer.png",
                         ),color: Colors.white,
                           size: 24.sp,
                         ),
-                        title: Text("Offer and Promo",style: TextStyle(color: Colors.white),),
+                        title: const Text("Offer and Promo",style: TextStyle(color: Colors.white),),
                       ),
                       Divider(
                         color: Colors.white,
@@ -75,7 +78,7 @@ class _MenuScreenState extends State<MenuScreen> {
                         height: 0,
                       ),
                       ListTile(
-                        leading: ImageIcon(AssetImage(
+                        leading: ImageIcon(const AssetImage(
                           "assets/icons/ic_outline-sticky-note-2.png",
                         ),color: Colors.white,
                           size: 24.sp,
@@ -89,12 +92,12 @@ class _MenuScreenState extends State<MenuScreen> {
                         height: 0,
                       ),
                       ListTile(
-                        leading: ImageIcon(AssetImage(
+                        leading: ImageIcon(const AssetImage(
                           "assets/icons/whh_securityalt.png",
                         ),color: Colors.white,
                           size: 24.sp,
                         ),
-                        title: Text("Security",style: TextStyle(color: Colors.white),),
+                        title: const Text("Security",style: TextStyle(color: Colors.white),),
                       ),
                     ],
                   ),
@@ -107,7 +110,7 @@ class _MenuScreenState extends State<MenuScreen> {
                   height: 26.h,
                   width: 150.w,
                   child: ListTile(
-                    trailing: Icon(Icons.arrow_forward,color: Colors.white,),
+                    trailing: const Icon(Icons.arrow_forward,color: Colors.white,),
                     title: Text("Sign Out",style: TextStyle(color: Colors.white,fontSize: 17.sp),),
                   ),
                 )
