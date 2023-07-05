@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:thurisa_labs/pages/product_details/ui/product_detail_page.dart';
 import 'package:thurisa_labs/pages/products/bloc/products_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -31,7 +33,7 @@ class _ProductsState extends State<Products> {
               builder: (context, state) {
                 switch (state.runtimeType) {
                   case ProductsFetchLoadingState:
-                    return const CircularProgressIndicator();
+                    return Center(child: const CircularProgressIndicator());
                   case ProductsFetchSuccessState:
                     final successState = state as ProductsFetchSuccessState;
                     return Container(
@@ -45,14 +47,21 @@ class _ProductsState extends State<Products> {
                               .products[index].title
                               .toString()
                               .split(" ");
-                          return Container(
-                            margin: EdgeInsets.only(left: 35.w),
-                            height: 312.h,
-                            width: 220.w,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              color: Colors.transparent,
-                            ),
+                          return InkWell(
+                            onTap: ()async{
+                              final SharedPreferences prefs = await SharedPreferences.getInstance();
+                              await prefs.setString('id', successState.products[index].id.toString());
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=> ProductDetails()));
+                            },
+
+                            child: Container(
+                              margin: EdgeInsets.only(left: 35.w),
+                              height: 312.h,
+                              width: 220.w,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: Colors.transparent,
+                              ),
 
                             child: Stack(
                               children: [
@@ -65,7 +74,7 @@ class _ProductsState extends State<Products> {
                                     width: 220.w,
                                     height: 270.h,
                                     decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(30),
+                                      borderRadius: BorderRadius.circular(30),
                                       color: Colors.white,
                                     ),
                                   ),
@@ -86,13 +95,6 @@ class _ProductsState extends State<Products> {
                                                 .toString(),),fit: BoxFit.fill),
                                         borderRadius: BorderRadius.circular(50),
                                       ),
-                                      // child: Image(
-                                      //     // height: 189.h,
-                                      //     // width: 168.w,
-                                      //     fit: BoxFit.contain,
-                                      //     image: NetworkImage(successState
-                                      //         .products[index].image
-                                      //         .toString())),
                                     ),
                                   ),
                                 ),
@@ -139,29 +141,21 @@ class _ProductsState extends State<Products> {
                                     ))
                               ],
                             ),
-                            // Column(
-                            //   crossAxisAlignment: CrossAxisAlignment.start,
-                            //   // mainAxisAlignment: MainAxisAlignment.center,
-                            //   children: [
-                            //     Image(image: NetworkImage(successState.products[index].image.toString())),
-                            //     // Text(successState.products[index].title),
-                            //     Text(successState.products[index].price.toString())
-                            //   ],
-                            // ),
+                        ),
                           );
-                        },
-                      ),
-                    );
-                }
+                      },
+                    ),
+                  );
+              }
 
-                return Container(
-                  color: Colors.black,
-                );
-              },
-            ),
+              return Container(
+                color: Colors.black,
+              );
+            },
           ),
-        ],
-      );
+        ),
+      ],
+    );
 
   }
 }
