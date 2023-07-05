@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:thurisa_labs/pages/get_started/ui/get_started.dart';
-import 'package:thurisa_labs/pages/home/ui/home_page.dart';
-import 'package:thurisa_labs/pages/no_internet/ui/no_internet.dart';
-import 'package:thurisa_labs/pages/products/ui/products_page.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -13,9 +11,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: SplashScreen(),
-    );
+    return ScreenUtilInit(
+      useInheritedMediaQuery: true,
+        designSize: Size(414, 896),
+        builder: (context,child){
+      return MaterialApp(
+        home: SplashScreen(),
+      );
+    });
   }
 }
 
