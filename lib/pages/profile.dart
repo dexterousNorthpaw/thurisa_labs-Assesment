@@ -130,6 +130,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                   width: 40.w,
                                   image: const AssetImage(
                                       "assets/icons/cardIcon.png")),
+                              SizedBox(width: 11.w,),
                               const Text("Card"),
                             ],
                           ),
@@ -155,6 +156,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                   width: 40.w,
                                   image: const AssetImage(
                                       "assets/icons/bankIcon.png")),
+                              SizedBox(width: 11.w,),
                               const Text("Bank Account"),
                             ],
                           ),
@@ -180,6 +182,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                   width: 40.w,
                                   image: const AssetImage(
                                       "assets/icons/paypalIcon.png")),
+                              SizedBox(width: 11.w,),
                               const Text("PayPal"),
                             ],
                           ),

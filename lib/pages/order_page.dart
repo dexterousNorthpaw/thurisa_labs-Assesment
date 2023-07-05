@@ -49,19 +49,34 @@ class OrderPage extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  height: 36.h,
+                  margin: EdgeInsets.symmetric(horizontal: 114.w),
+                  height: 33.h,
                   width: 186.w,
-                  child: Text("No orders yet"),
+                  child: Text(
+                    "No orders yet",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 28.sp),
+                  ),
+                ),
+                SizedBox(
+                  height: 17.h,
                 ),
                 Container(
+                  margin: EdgeInsets.symmetric(horizontal: 97.w),
                   height: 40.h,
                   width: 220.w,
                   child: Text(
-                      "Hit the orange button down\n"
-                          "below to Create an order"),
+                    textAlign: TextAlign.center,
+                    "Hit the orange button down\n"
+                    "below to Create an order",
+                    style: TextStyle(
+                        color: Color.fromRGBO(0, 0, 0, 0.5),
+                        fontSize: 17.sp,
+                        fontWeight: FontWeight.w400),
+                  ),
                 ),
                 SizedBox(
-                  height: 277.h,
+                  height: 270.h,
                 ),
                 Container(
                   height: 70.h,
@@ -73,7 +88,8 @@ class OrderPage extends StatelessWidget {
                   ),
                   child: InkWell(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=> HomePage()));
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => HomePage()));
                     },
                     child: Center(
                       child: Text(
