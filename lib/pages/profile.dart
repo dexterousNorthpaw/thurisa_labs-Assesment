@@ -85,8 +85,12 @@ class _ProfilePageState extends State<ProfilePage> {
                               children: [
                                 Text("Marvis Ogedengbe",style: TextStyle(fontSize: 18.sp,fontWeight: FontWeight.w600)),
                                 Text("dosamarvis@gmail.com",style: TextStyle(fontSize: 13.sp)),
-                                Text("No 15 uti street off ovie palace\n"
-                                    " road effurun delta state",style: TextStyle(fontSize: 13.sp),),
+                                Container(
+                                  height: 32.h,
+                                  width: 191.w,
+                                  child: Text("No 15 uti street off ovie palace\n"
+                                      "road effurun delta state",style: TextStyle(fontSize: 13.sp),),
+                                ),
                               ],
                             ),
                           ))
